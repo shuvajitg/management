@@ -1,11 +1,23 @@
 import mongoose from "mongoose";
+import dbname from "@/dbName/dbname";
 
-export default async function UserDbConnect() {
+export async function UserDbConnect() {
   try {
-    const dbConnect = await mongoose.connect(process.env.MONGODB_URI / "Users");
-    console.log(`Db connected sucessfull`);
+    mongoose.connect(`${process.env.MONGO_URI}/${dbname}`);
+    const connection = mongoose.connection;
+
+    connection.on("connected", () => {
+      console.log("MongoDB connected successfully");
+    });
+
+    connection.on("error", (err) => {
+      console.log(
+        "MongoDB connection error. Please make sure MongoDB is running. " + err
+      );
+      process.exit(1);
+    });
   } catch (error) {
-    console.log("Db connection failed: ", error);
-    Process.exit(1);
+    console.log("Something goes wrong!");
+    console.log(error);
   }
 }

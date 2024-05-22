@@ -19,8 +19,6 @@ const userSchema = new mongoose.Schema({
   number: {
     type: Number,
     required: [true, "enter number"],
-    min: 10,
-    max: 10,
   },
 });
 const User = mongoose.models.User || mongoose.model("User", userSchema);
