@@ -6,12 +6,14 @@ const adminSchema = new mongoose.Schema({
     Ref: "User",
   },
   email: {
-    type: mongoose.Schema.Types.ObjectId,
-    Ref: "User",
+    type: String,
+    required: true,
+    unique: true,
+    lowercase: true,
   },
   password: {
-    type: mongoose.Schema.Types.ObjectId,
-    Ref: "User",
+    type: String,
+    required: true,
   },
   number: {
     type: mongoose.Schema.Types.ObjectId,

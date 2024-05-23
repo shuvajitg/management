@@ -2,8 +2,19 @@ import mongoose from "mongoose";
 
 const studentSchema = new mongoose.Schema({
   name: {
-    type: mongoose.Schema.Types.ObjectId,
-    Ref: "User",
+    type: String,
+    required: true,
+    uppercase: true,
+  },
+  fatherName: {
+    type: String,
+    required: true,
+    uppercase: true,
+  },
+  cast: {
+    type: String,
+    required: true,
+    default: "",
   },
   email: {
     type: mongoose.Schema.Types.ObjectId,
@@ -16,6 +27,10 @@ const studentSchema = new mongoose.Schema({
   number: {
     type: mongoose.Schema.Types.ObjectId,
     Ref: "User",
+  },
+  whatsAppNumber: {
+    type: Number,
+    required: true,
   },
   isStudent: {
     type: Boolean,
@@ -32,7 +47,9 @@ const studentSchema = new mongoose.Schema({
   },
   regNo: {
     type: String,
+    required: true,
     unique: true,
+    uppercase: true,
   },
 });
 const Student =

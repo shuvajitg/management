@@ -1,7 +1,7 @@
 import User from "@/model/user.model";
 import { UserDbConnect } from "@/lib/userdb/connect";
 import bcryptjs from "bcryptjs";
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 
 UserDbConnect();
 export async function POST(req) {

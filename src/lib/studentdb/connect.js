@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 import { StudentDbName } from "@/dbName/dbname";
 
-export async function UserDbConnect() {
+export async function StudentDbConnect() {
   try {
     mongoose.connect(`${process.env.MONGO_URI}/${StudentDbName}`);
     const connection = mongoose.connection;

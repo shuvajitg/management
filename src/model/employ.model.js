@@ -2,12 +2,14 @@ import mongoose from "mongoose";
 
 const employeeSchema = new mongoose.Schema({
   name: {
-    type: mongoose.Schema.Types.ObjectId,
-    Ref: "User",
+    type: String,
+    required: true,
+    uppercase: true,
   },
   email: {
-    type: mongoose.Schema.Types.ObjectId,
-    Ref: "User",
+    type: String,
+    required: true,
+    lowercase: true,
   },
   password: {
     type: mongoose.Schema.Types.ObjectId,
@@ -25,6 +27,10 @@ const employeeSchema = new mongoose.Schema({
     type: String,
     required: true,
     uppercase: true,
+  },
+  whatsAppNumber: {
+    type: Number,
+    required: true,
   },
 });
 const Employee =
