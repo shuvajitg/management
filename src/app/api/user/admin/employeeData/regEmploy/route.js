@@ -8,7 +8,7 @@ EmployeeConnect();
 export async function POST(req) {
   try {
     const reqBody = await req.json();
-    const { name, email, password, dept, whatsAppNumber } = reqBody;
+    const { name, email, password, dept, whatsAppNumber, sallary } = reqBody;
 
     const employee = await Employee.findOne({ email });
     if (employee) {
@@ -23,12 +23,15 @@ export async function POST(req) {
     }
     const salt = await bcryptjs.genSalt(10);
     const hashPassword = await bcryptjs.hash(password, salt);
+    const id = Math.floor(Math.random() * 100000000);
     const newEmployee = new Employee({
       name,
       email,
       password: hashPassword,
       dept,
       whatsAppNumber,
+      sallary,
+      employeeId: id,
     });
     const saveEmployee = await newEmployee.save();
     return NextResponse.json(

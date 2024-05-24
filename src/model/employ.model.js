@@ -28,9 +28,18 @@ const employeeSchema = new mongoose.Schema({
     required: true,
     uppercase: true,
   },
+  sallary: {
+    type: Number,
+    required: true,
+  },
   whatsAppNumber: {
     type: Number,
     required: true,
+  },
+  employeeId: {
+    type: String,
+    required: true,
+    unique: true,
   },
 });
 const Employee =
