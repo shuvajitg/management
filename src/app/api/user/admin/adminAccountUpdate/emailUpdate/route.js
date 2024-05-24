@@ -24,14 +24,13 @@ export async function PATCH(req) {
           }
         );
       }
-      const updateuserByEmail = await Admin.findByIdAndUpdate(user._id, {
+      const updateuserEmail = await Admin.findByIdAndUpdate(user._id, {
         email: newEmail,
       });
-      if (updateuserByEmail) {
+      if (updateuserEmail) {
         return NextResponse.json(
           {
             message: "this email alredy exist as a admin",
-            sucess: user,
           },
           {
             status: 400,
@@ -41,9 +40,19 @@ export async function PATCH(req) {
       return NextResponse.json(
         {
           message: "Admin update sucessfully",
+          sucess: user,
         },
         {
           status: 201,
+        }
+      );
+    } else {
+      return NextResponse.json(
+        {
+          message: "user not found",
+        },
+        {
+          status: 400,
         }
       );
     }
