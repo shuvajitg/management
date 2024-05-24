@@ -12,8 +12,8 @@ const employeeSchema = new mongoose.Schema({
     lowercase: true,
   },
   password: {
-    type: mongoose.Schema.Types.ObjectId,
-    Ref: "User",
+    type: String,
+    required: true,
   },
   number: {
     type: mongoose.Schema.Types.ObjectId,
