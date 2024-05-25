@@ -15,14 +15,20 @@ const studentSchema = new mongoose.Schema({
     type: String,
     required: true,
     default: "",
+    uppercase: true,
   },
   email: {
-    type: mongoose.Schema.Types.ObjectId,
-    Ref: "User",
+    type: String,
+    required: true,
+    lowercase: true,
+  },
+  bladgroop: {
+    type: String,
+    default: "",
   },
   password: {
-    type: mongoose.Schema.Types.ObjectId,
-    Ref: "User",
+    type: String,
+    required: true,
   },
   number: {
     type: mongoose.Schema.Types.ObjectId,
@@ -31,6 +37,7 @@ const studentSchema = new mongoose.Schema({
   whatsAppNumber: {
     type: Number,
     required: true,
+    unique: true,
   },
   isStudent: {
     type: Boolean,
